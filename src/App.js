@@ -12,6 +12,7 @@ import IndexPage from "./pages/index-page";
 import LoginPage from "./pages/login-page";
 import RegisterPage from "./pages/register-page";
 import CreatePost from "./pages/create-post";
+import PostPage from "./pages/post-page";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path={'/login'} element={ <LoginPage />} />  
           <Route path={'/register'} element={ <RegisterPage />} />
           <Route path={'/create'} element={ <CreatePost/>}/>
+          <Route path={'/post/:id'} element={<PostPage/>} />
         </Route>
       </Routes>
     </UserContextProvider>
