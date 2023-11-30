@@ -143,6 +143,7 @@ input{
 }
 
 button {
+  cursor: pointer;
   width: 100%;
   display: block;
   background-color: #555;
@@ -150,6 +151,10 @@ button {
   color: #fff;
   border-radius: 5px;
   padding: 7px 0;
+}
+
+a {
+  cursor: pointer;
 }
 
 form h1{

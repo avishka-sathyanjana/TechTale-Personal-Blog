@@ -31,11 +31,15 @@ export default function Header(){
     return(
       <header>
         <Link to="/" className="logo">MyBlog</Link>
+        
         <nav>
          {username && (
           <>
-            <Link to="/create">Create new post</Link>
-            <a onClick={logout}>Logout</a>
+            
+            
+            <Link to="/create">Create new post </Link>
+            <a onClick={logout}>Logout from {username}</a>
+
           </>
         )}
         {!username && (
