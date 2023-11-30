@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import {UserContext} from "../component/UserContext";
+import {Navigate} from "react-router-dom";
 
 export default function LoginPage(){
 
@@ -17,18 +18,23 @@ export default function LoginPage(){
             headers: {'Content-Type': 'application/json'},
             // to include credentials as a cookie
             credentials: 'include'
-        })
+        });
 
         if (response.ok) {
-            setRedirect(true)
-            // response.json().then(userInfo => {
-            //   setUserInfo(userInfo);
-            //   setRedirect(true);
-            // });
+            response.json().then(userInfo => {
+              setUserInfo(userInfo);
+              setRedirect(true);
+            });
           } else {
             alert('wrong credentials');
           }
     }
+
+    // when the login is successful redirect to homepage
+    if (redirect) {
+        return <Navigate to={'/'} />
+      }
+      
     return (
         <form className="login-form" onSubmit={login}>
             <h1>Login</h1>

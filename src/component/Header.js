@@ -25,6 +25,7 @@ export default function Header(){
     setUserInfo(null);
   }
 
+  // user info can sometimes be null
   const username = userInfo?.username;
 
     return(
