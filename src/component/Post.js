@@ -1,28 +1,25 @@
-export default function Post(){
-    return(
-        <div className="post">
-        <div className="image">
-          <img src="https://serokell.io/files/q5/q5c8rtrc.pasted_image_0_(5).png"></img>
-        </div>
-        <div className="texts">
-          <h2>Introduction to Generative AI</h2>
-          <p className='info'>
-            <a className='author'>Avishka Sathyanjana</a>
-            <time>2023-11-28 16:48</time>
-          </p>
-          <p className='summery'>
-            Generative artificial intelligence has seen an incredible popularity
-            surge in 2022. Big Think has called it ‘the technology of the year’,
-            and judging from the amount of attention and VC support generative
-            AI startups have been gaining this year, this claim is more than
-            justified. Moreover, tech experts say that in the next few years,
-            not only will the development of generative AI not slow down but
-            will also rapidly increase, conquering new and new fields. In this
-            post, written in collaboration with Serokell’s AI developers, I’ll
-            take a closer look at what generative AI is and how it works, as
-            well as outline common use cases and perspectives for the future.
-          </p>
-        </div>
+import {formatISO9075} from "date-fns"; //format date 
+import {Link} from "react-router-dom";
+
+export default function Post({_id,title,summary,cover,content,createdAt,author}) {
+
+  return (
+    <div className="post">
+      <div className="image">
+        <Link to={`/post/${_id}`}>
+          <img src={'http://localhost:4000/'+cover} alt=""/>
+        </Link>
       </div>
-    )
+      <div className="texts">
+        <Link to={`/post/${_id}`}>
+        <h2>{title}</h2>
+        </Link>
+        <p className="info">
+          <a className="author">{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
+        </p>
+        <p className="summary">{summary}</p>
+      </div>
+    </div>
+  );
 }
